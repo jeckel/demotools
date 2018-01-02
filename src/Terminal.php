@@ -31,10 +31,11 @@ class Terminal
 
     /**
      * Pause, wait for a key pressed by the user
+     * @param string $message
      */
-    static public function pause()
+    static public function pause($message = "Press any key to continue...")
     {
-        system('read -n1 -r -p "Press any key to continue..."');
+        system('read -n1 -r -p "' . $message . '"');
     }
 
     /**
@@ -65,7 +66,7 @@ class Terminal
      * @param string $title
      * @return string
      */
-    static public function menu(array $items, string $title = "Select an iteml"): string
+    static public function menu(array $items, string $title = "Select an item"): string
     {
         self::clear();
         self::printTitle($title);

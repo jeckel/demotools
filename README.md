@@ -3,21 +3,117 @@
 # DemoTools
 Suite of tools for demo scripts
 
-# Color
+# Requirements
 
-The `Color` interface define some constants to use in terminal messages.
+This tools worj only with PHP7+ for now.
 
-# Terminal
+It's using ANSI codes for color management.
 
-The `Terminal` static class provide some methods to interact with the user with the terminal :
+## Color
+
+The [`Color`](src/Color.php) interface define some constants to use in terminal messages.
+
+## Terminal
+
+The [`Terminal`](src/Terminal.php) static class provide some methods to interact with the user with the terminal :
+
 
 - `cls`: Clear screen
 - `clear`: Clear screen (alias of `cls`)
 - `pause`: Wait for user to press a key
-- `readUserEntry`: Read user entrey (with an optional question)
+- `readUserEntry`: Read user entry (with an optional question)
 - `printTitle`: Print a title
 - `menu`: display a menu, and return the selected item
 - `printColoredLine`: print a line with a defined color
 - `printSuccess`: print a success message (in green by default)
 - `printFailure`: print a failure message (in red by default)
 
+### `cls` and `clear`
+
+Usage:
+```php
+Terminal::cls():
+
+// or
+
+Terminal::clear();
+```
+
+### `pause`
+
+Usage:
+```php
+Terminal::pause(); // Display "Press any key to continue..." by default
+
+// or
+
+Terminal::pause('Press a key for next');
+```
+
+### `readUserEntry`
+
+Usage:
+```php
+$username = readUserEntry('Enter your username:');
+```
+
+### `menu`
+
+Usage:
+```php
+$menuItems = [
+    1 => 'Add user',
+    2 => 'List users',
+    3 => 'Remove user',
+    9 => 'Exit'
+];
+
+$selectedItem = Terminal::menu($menuItems, 'Manage users:');
+```
+
+Will display:
+```
+Manage users:
+ - [1] Add user
+ - [2] List users
+ - [3] Remove user
+ - [9] Exit
+Your choice: 9
+```
+
+### `printColoredLine`
+
+Usage:
+```php
+Terminal::printColoredLine('It works', Color::GREEN);
+```
+
+### `printSuccess`
+
+Usage:
+```php
+Terminal::printSuccess(); // Will display 'success' in green
+
+// or
+
+Terminal::printSuccess('done'); // Will display 'done' in green
+
+// or
+
+Terminal::printSuccess('done', Color::BLUE) // Will display 'done' in blue
+```
+
+### `printFailure`
+
+Usage:
+```php
+Terminal::printFailure(); // Will display 'failure' in red
+
+// or
+
+Terminal::printFailure('It failed'); // Will display 'It failed' in red
+
+// or
+
+Terminal::printFailure('It failed', Color::BLUE) // Will display 'It failed' in blue
+```
