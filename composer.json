@@ -1,0 +1,19 @@
+{
+    "name": "jeckel/demotools",
+    "description": "Tools for demo script",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julien MERCIER",
+            "email": "devci@j3ck3l.me"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "DemoTools\\": "src/"
+        }
+    }
+}
