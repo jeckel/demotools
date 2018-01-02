@@ -54,7 +54,7 @@ Terminal::pause('Press a key for next');
 
 Usage:
 ```php
-$username = readUserEntry('Enter your username:');
+$username = Terminal::readUserEntry('Enter your username:');
 ```
 
 ### `menu`
