@@ -1,1 +1,5 @@
+# Composer
 /vendor/
+
+# IDE
+.idea
