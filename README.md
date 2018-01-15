@@ -117,3 +117,28 @@ Terminal::printFailure('It failed'); // Will display 'It failed' in red
 
 Terminal::printFailure('It failed', Color::BLUE) // Will display 'It failed' in blue
 ```
+
+### `printR`
+
+Used to debug values.
+
+Usage:
+```php
+Terminal::printR($value1, $value2, $value3);
+```
+
+## Menu
+
+Menu is a class used to create an interractive menu. You just need to pass an array of [callables](http://php.net/manual/en/language.types.callable.php):
+
+Usage:
+```php
+$items = [
+    'Display Hello' = function() { echo 'Hello'; },
+    'Use callback' = 'MyClass::MyFunction'
+];
+
+(new Menu($items))->loop('Choose an option');
+```
+
+It will always add an exit option to the given menu.
