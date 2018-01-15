@@ -10,6 +10,11 @@ class Menu
 
     /**
      * Menu constructor.
+     *
+     * Items should be an array with the form
+     * - key: Displayed text
+     * - value: callable function
+     *
      * @param array $items
      */
     public function __construct(array $items)
