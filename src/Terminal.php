@@ -10,7 +10,7 @@ class Terminal
 
     const DFL_SUCCESS_COLOR = Color::GREEN;
 
-    const DFL_FAIILURE_COLOR = Color::RED_BOLD;
+    const DFL_FAILURE_COLOR = Color::RED_BOLD;
 
     /**
      * Clear screen
@@ -103,8 +103,17 @@ class Terminal
      * @param string $failure
      * @param string $color
      */
-    static public function printFailure(string $failure = 'failure', string $color = self::DFL_FAIILURE_COLOR)
+    static public function printFailure(string $failure = 'failure', string $color = self::DFL_FAILURE_COLOR)
     {
         self::printColoredLine($failure, $color);
+    }
+
+    /**
+     * Print a dump of all given parameters
+     * @param mixed... $params
+     */
+    static public function printR()
+    {
+        self::printColoredLine(print_r(func_get_args(), true), Color::PURPLE_BOLD);        
     }
 }

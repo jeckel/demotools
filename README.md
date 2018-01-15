@@ -27,6 +27,7 @@ The [`Terminal`](src/Terminal.php) static class provide some methods to interact
 - `printColoredLine`: print a line with a defined color
 - `printSuccess`: print a success message (in green by default)
 - `printFailure`: print a failure message (in red by default)
+- `printR`: print a dump of all given parameters
 
 ### `cls` and `clear`
 
